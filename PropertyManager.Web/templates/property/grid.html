@@ -1,0 +1,41 @@
+﻿
+	<div class="panel panel-primary viewPort">
+		<div class="panel heading panel-heading clearfix">
+			<i class="fa fa-home"></i> Properties
+			<button class="btn btn-sm btn-success pull-right" ui-sref="property.detail">
+                <i class="fa fa-plus"></i>Add Property
+            </button>
+		</div>
+		<div class="panel-body panel-warning">
+			<div class="alert alert-warning" ng-hide="properties.length">
+				<strong>Oops!</strong> There are no properties - Please add a property
+			</div>
+			<table class="table table-striped" ng-show="properties.length">
+				<thead>
+					<tr>
+						<th>Property Name</th>
+						<th>Address 1</th>
+						<th>Address 2</th>
+						<th>City</th>
+						<th>State</th>
+						<th>Zip</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="property in properties">
+						<td>{{property.Name}}</td>
+						<td>{{property.Address1}}</td>
+						<td>{{property.Address2}}</td>
+						<td>{{property.City}}</td>
+						<td>{{property.State}}</td>
+						<td>{{property.Zip}}</td>
+						<td>
+							<a class="btn btn-xs btn-info" ui-sref="property.detail({id:PropertyId})"><i class="fa fa-edit fa-fw"></i></a>
+							<a class="btn btn-xs btn-danger" ng-click="deleteProperty(property)"><i class="fa fa-times fa-fw"></i></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>

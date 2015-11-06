@@ -1,0 +1,67 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading"> {{lease.LeaseId ? 'Edit' : 'Add'}} Lease</div>
+    <div class="panel-body">
+            <div class="well">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="leaseProperty">Property Name</label>
+                            <select id="leaseProperty" class="form-control" placeholder="Property Name"
+                                    ng-options="property.PropertyId as property.Name for property in properties"
+                                    ng-model="lease.PropertyId"></select>
+                        </div><!-- end form group -->
+                    </div><!-- end column -->
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="leaseTenant"> Tenant</label>
+                            <select id="leaseTenant" class="form-control" placeholder="First Name"
+                                    ng-options="tenant.TenantId as tenant.FirstName for tenant in tenants"
+                                    ng-model="lease.TenantId"></select>
+                        </div><!-- end form group -->
+                    </div><!-- end column -->
+
+                </div><!-- end row -->
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="leaseStartDate">Lease Start Date</label>
+                            <input type="text" class="form-control" id="leaseStartDate"
+                                   placeholder="Lease Start Date" ng-model="lease.StartDate">
+                        </div><!-- end form group -->
+                    </div><!-- end column -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="leaseEndDate">Lease End Date</label>
+                            <input type="text" class="form-control" id="leaseEndDate"
+                                   placeholder="Lease End Date" ng-model="lease.EndDate">
+                        </div><!-- end form group -->
+                    </div><!-- end column -->
+                </div><!-- end row -->
+
+                <div class="form-group">
+                    <label class="control-label" for="leaseRent">Rent</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="text" class="form-control" id="leaseRent" placeholder="Rent" ng-model="lease.Rent">
+                    </div><!-- End input-group-->
+                </div><!-- end form group -->
+
+                <div class="row">
+                    <div class="col-sm-8">
+                        <button class="btn btn-success btn-sm pull-right" ng-click="saveLease()">
+                            <i class="fa fa-save"></i> Save
+                        </button>
+                    </div><!-- end column -->
+                    <div class="col-sm-4">
+                        <button class="btn btn-danger btn-sm pull-right" ui-sref="lease.grid">
+                            <i class="fa fa-remove fa-fw"></i> Cancel
+                        </button>
+                    </div><!-- end column -->
+                </div><!-- end row -->
+                <!--pre>{{lease | json}}</pre-->
+
+            </div><!-- end well -->
+
+        </div>
+</div>

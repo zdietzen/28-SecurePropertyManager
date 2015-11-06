@@ -1,0 +1,43 @@
+﻿
+    <div class="panel panel-primary viewPort">
+        <div class="panel heading panel-heading clearfix">
+            <i class="fa fa-users"></i> Tenants
+            <button class="btn btn-success btn-sm pull-right" ui-sref="tenant.detail">
+                <i class="fa fa-plus"></i>Add Tenant
+            </button>
+        </div>
+        <div class="panel-body panel-warning">
+            <div class="alert alert-warning" ng-hide="tenants.length">
+
+                <strong>Oops!</strong> There are no tenants - Please add a tenant
+            </div>
+
+            <table class="table table-bordered table-condensed table-responsive" ng-show="tenants.length">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Telephone Number</th>
+                        <th>Email Address</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="tenant in tenants">
+                        <td>{{tenant.FirstName}}</td>
+                        <td>{{tenant.LastName}}</td>
+                        <td>{{tenant.Telephone}}</td>
+                        <td>{{tenant.EmailAddress}}</td>
+                        <td>
+                            <a class="btn btn-info btn-xs" ui-sref="tenant.detail({ id: tenant.TenantId })">
+                                <i class="fa fa-edit fa-fw"></i>
+                            </a>
+                            <a class="btn btn-danger btn-xs" ng-click="deleteTenant(tenant)">
+                                <i class="fa fa-times fa-fw"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div><!-- end container-->
